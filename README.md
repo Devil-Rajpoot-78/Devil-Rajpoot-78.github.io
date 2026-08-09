@@ -1,5 +1,5 @@
-# Muhammad Ameer Hamza — Freelance Portfolio
+# Devil-Rajpoot-78.github.io
 
-3D animation, Blender, game development, and software development.
+This repository contains a minimal test webpage for Muhammad Ameer Hamza.
 
-https://devil-rajpoot-78.github.io/
+The repository was reduced to a single index.html for the site and this README.md.
