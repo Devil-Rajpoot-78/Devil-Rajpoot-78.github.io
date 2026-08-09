@@ -1,10 +1,87 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Devil Rajpoot — 3D artist, Blender creator, game developer, and software developer.">
+  <title>Devil Rajpoot — 3D & Interactive Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#eef2ff;--muted:#aeb6cc;--line:rgba(238,242,255,.16);--night:#090b14;--violet:#a78bfa;--cyan:#48d8ff;--lime:#c5ff65}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--night);color:var(--ink);font:16px/1.6 Manrope,Arial,sans-serif;overflow-x:hidden}
+    #scene{position:fixed;inset:0;z-index:-2;opacity:.58} .glow{position:fixed;z-index:-1;width:52vw;height:52vw;filter:blur(110px);border-radius:50%;background:#35216f;opacity:.25;top:-25vw;right:-20vw}
+    .shell{width:min(1160px,calc(100% - 40px));margin:auto}.nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{font-weight:800;letter-spacing:-.07em;font-size:1.3rem}.brand span{color:var(--cyan)}.nav a{color:var(--muted);text-decoration:none;font-size:.85rem;margin-left:24px}.nav a:hover{color:var(--ink)}
+    .eyebrow{font:500 .73rem/1 DM Mono,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:9px}.eyebrow:before{content:"";height:7px;width:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px var(--lime)}
+    .hero{min-height:calc(100vh - 82px);display:flex;flex-direction:column;justify-content:center;padding:80px 0 110px;max-width:780px}.hero h1{font-size:clamp(3.4rem,8vw,7rem);line-height:.98;letter-spacing:-.075em;margin:22px 0 25px;font-weight:800}.gradient{background:linear-gradient(100deg,#fff 25%,var(--cyan),var(--violet));-webkit-background-clip:text;color:transparent}
+    .lede{color:var(--muted);font-size:clamp(1.05rem,2vw,1.3rem);max-width:650px;margin:0 0 36px}.actions{display:flex;gap:13px;flex-wrap:wrap}.button{padding:13px 19px;border-radius:3px;text-decoration:none;font-size:.9rem;font-weight:700;display:inline-flex;align-items:center;gap:10px}.button.primary{background:var(--lime);color:#101309}.button.secondary{border:1px solid var(--line);color:var(--ink);backdrop-filter:blur(10px)}
+    section{padding:105px 0;border-top:1px solid var(--line)}.section-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:35px}.section-title h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.06em;margin:0}.index{font:500 .75rem DM Mono,monospace;color:var(--cyan)}
+    .intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px}.big-copy{font-size:1.35rem;line-height:1.5;letter-spacing:-.025em;margin:0}.details{display:grid;gap:0}.detail{padding:15px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:.9rem}.detail b{color:var(--ink)}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{padding:29px;min-height:255px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.01));position:relative;overflow:hidden;transition:transform .35s,border-color .35s}.card:hover{transform:translateY(-6px);border-color:rgba(72,216,255,.7)}.number{font:500 .75rem DM Mono,monospace;color:var(--cyan)}.card h3{font-size:1.55rem;line-height:1.15;letter-spacing:-.05em;margin:38px 0 13px}.card p{color:var(--muted);font-size:.92rem;margin:0;max-width:390px}.tag{position:absolute;bottom:25px;font:500 .67rem DM Mono,monospace;color:var(--lime);letter-spacing:.08em;text-transform:uppercase}
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}.step{padding:26px;border-right:1px solid var(--line);min-height:215px}.step:last-child{border:0}.step h3{margin:29px 0 8px;font-size:1.1rem}.step p{font-size:.86rem;color:var(--muted);margin:0}
+    .cta{text-align:center;padding:120px 0}.cta h2{font-size:clamp(2.6rem,6vw,5.6rem);line-height:1;letter-spacing:-.075em;max-width:900px;margin:20px auto 31px}.cta p{color:var(--muted);max-width:520px;margin:0 auto 30px}.footer{padding:25px 0 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font:400 .72rem DM Mono,monospace}
+    @media(max-width:700px){.nav nav{display:none}.hero{padding:70px 0}.intro-grid,.grid{grid-template-columns:1fr;gap:16px}.process{grid-template-columns:1fr 1fr}.step{border-bottom:1px solid var(--line)}.step:nth-child(2){border-right:0}.step:nth-child(3),.step:nth-child(4){border-bottom:0}.footer{gap:12px;flex-direction:column}section{padding:75px 0}}
+  </style>
 </head>
 <body>
-    <h1>My Personal Website</h1>
-    <p>This website is used for my personal projects and development work.</p>
+  <canvas id="scene"></canvas><div class="glow"></div>
+  <main class="shell">
+    <header class="nav">
+      <a class="brand" href="#">DEVIL<span>.</span></a>
+      <nav><a href="#about">About</a><a href="#capabilities">Capabilities</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+    </header>
+    <section class="hero">
+      <p class="eyebrow">Available for selected collaborations</p>
+      <h1>Worlds worth <span class="gradient">exploring.</span></h1>
+      <p class="lede">I combine 3D art, real-time game development, and thoughtful software engineering to create interactive experiences with a point of view.</p>
+      <div class="actions"><a class="button primary" href="#contact">Start a project <span>↗</span></a><a class="button secondary" href="#capabilities">Explore my work ↓</a></div>
+    </section>
+    <section id="about">
+      <div class="section-title"><h2>Built at the intersection<br>of art and code.</h2><span class="index">01 / ABOUT</span></div>
+      <div class="intro-grid">
+        <p class="big-copy">I’m Devil Rajpoot, a multidisciplinary creator focused on turning ambitious ideas into polished digital experiences. From cinematic 3D scenes to performant game systems and clean web products, I bring both visual taste and technical care to every build.</p>
+        <div class="details"><div class="detail"><span>Based in</span><b>Pakistan · Remote worldwide</b></div><div class="detail"><span>Focus</span><b>Interactive & visual systems</b></div><div class="detail"><span>Working with</span><b>Founders · studios · teams</b></div></div>
+      </div>
+    </section>
+    <section id="capabilities">
+      <div class="section-title"><h2>How I can help.</h2><span class="index">02 / CAPABILITIES</span></div>
+      <div class="grid">
+        <article class="card"><span class="number">01</span><h3>3D animation<br>& visuals</h3><p>Stylised or cinematic assets, motion, lighting, materials, and visual storytelling designed to leave a lasting impression.</p><span class="tag">Blender · Rendering · Motion</span></article>
+        <article class="card"><span class="number">02</span><h3>Game<br>development</h3><p>Responsive gameplay, immersive environments, and scalable systems that make players want to stay in the world.</p><span class="tag">Unity · Unreal · Gameplay</span></article>
+        <article class="card"><span class="number">03</span><h3>Creative<br>technology</h3><p>Interactive web experiences and real-time prototypes that translate a brand or product idea into something people can feel.</p><span class="tag">WebGL · Three.js · Interaction</span></article>
+        <article class="card"><span class="number">04</span><h3>Software<br>development</h3><p>Reliable, user-centred software from interface through implementation—built with clarity, performance, and maintainability in mind.</p><span class="tag">Frontend · Systems · Product</span></article>
+      </div>
+    </section>
+    <section id="process">
+      <div class="section-title"><h2>From idea to impact.</h2><span class="index">03 / PROCESS</span></div>
+      <div class="process">
+        <div class="step"><span class="number">01</span><h3>Discover</h3><p>We define the goal, audience, and the feeling your project needs to create.</p></div>
+        <div class="step"><span class="number">02</span><h3>Direct</h3><p>I shape a visual and technical direction that makes the concept clear.</p></div>
+        <div class="step"><span class="number">03</span><h3>Build</h3><p>Assets and systems come together in focused iterations with regular feedback.</p></div>
+        <div class="step"><span class="number">04</span><h3>Launch</h3><p>You receive a refined, ready-to-use result built to perform in the real world.</p></div>
+      </div>
+    </section>
+    <section class="cta" id="contact">
+      <p class="eyebrow" style="justify-content:center">Have an ambitious brief?</p>
+      <h2>Let’s make something <span class="gradient">unforgettable.</span></h2>
+      <p>For a game, 3D animation, interactive experience, or software product—tell me what you’re building.</p>
+      <a class="button primary" href="https://github.com/Devil-Rajpoot-78" target="_blank" rel="noopener">Connect on GitHub <span>↗</span></a>
+    </section>
+    <footer class="footer"><span>© 2026 DEVIL RAJPOOT</span><span>3D ART · GAMES · SOFTWARE</span></footer>
+  </main>
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js';
+    const canvas=document.querySelector('#scene'),renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true}),scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,innerWidth/innerHeight,.1,100);
+    camera.position.set(0,0,7);renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);
+    const group=new THREE.Group();scene.add(group);
+    const geo=new THREE.IcosahedronGeometry(1.5,2),mat=new THREE.MeshBasicMaterial({color:0x8b5cf6,wireframe:true,transparent:true,opacity:.46});
+    const core=new THREE.Mesh(geo,mat);group.add(core);
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(2.1,.018,8,120),new THREE.MeshBasicMaterial({color:0x48d8ff,transparent:true,opacity:.65}));ring.rotation.x=1.2;group.add(ring);
+    const stars=new THREE.BufferGeometry(),pts=[];for(let i=0;i<500;i++)pts.push((Math.random()-.5)*22,(Math.random()-.5)*15,(Math.random()-.5)*12);stars.setAttribute('position',new THREE.Float32BufferAttribute(pts,3));scene.add(new THREE.Points(stars,new THREE.PointsMaterial({color:0xc5ff65,size:.018})));
+    let mx=0,my=0;addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+    function tick(t){group.rotation.y=t*.00018+mx*.45;group.rotation.x=my*.24;group.position.x=2.1+mx*.5;group.position.y=.4-my*.3;renderer.render(scene,camera);requestAnimationFrame(tick)}tick(0);
+  </script>
 </body>
 </html>
