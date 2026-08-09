@@ -1,5 +1,5 @@
-# Devil Rajpoot — Portfolio
+# Muhammad Ameer Hamza — Freelance Portfolio
 
-A responsive GitHub Pages portfolio for Devil Rajpoot: 3D artist, Blender creator, game developer, and software developer.
+3D animation, Blender, game development, and software development.
 
-Visit: https://devil-rajpoot-78.github.io/
+https://devil-rajpoot-78.github.io/
