@@ -3,18 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Muhammad Ameer Hamza - Test Page</title>
+    <title>Muhammad Ameer Hamza — Test Page</title>
     <style>
-      body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f7f7f7}
-      .card{background:white;padding:2rem 3rem;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08);text-align:center}
-      h1{margin:0 0 0.5rem;font-size:1.6rem}
-      p{margin:0;color:#444}
+      :root{--bg1:#0f172a;--bg2:#0b3a5b;--card:#ffffff;--muted:#6b7280}
+      html,body{height:100%;margin:0}
+      body{display:grid;place-items:center;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--card)}
+      .panel{width:min(720px,90%);background:rgba(255,255,255,0.04);backdrop-filter:blur(6px);border-radius:14px;padding:40px 48px;box-shadow:0 10px 30px rgba(2,6,23,0.6);text-align:center}
+      h1{font-size:clamp(1.6rem,3.6vw,2.6rem);margin:0 0 0.25rem}
+      p.lead{margin:0 0 1rem;color:rgba(255,255,255,0.85);font-weight:600}
+      p.meta{margin:0;color:var(--muted)}
+      .badge{display:inline-block;margin-top:18px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.06);font-size:0.9rem;color:rgba(255,255,255,0.9)}
     </style>
   </head>
   <body>
-    <div class="card">
+    <div class="panel">
       <h1>Muhammad Ameer Hamza</h1>
-      <p>This webpage is for testing.</p>
+      <p class="lead">A minimal test page</p>
+      <p class="meta">This webpage is for testing and development purposes.</p>
+      <div class="badge">Lightweight • No analytics • Demo</div>
     </div>
   </body>
 </html>

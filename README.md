@@ -1,5 +1,5 @@
-# Devil-Rajpoot-78.github.io
+# Muhammad Ameer Hamza — Test Site
 
-This repository contains a minimal test webpage for Muhammad Ameer Hamza.
+This repository hosts a minimal testing webpage for Muhammad Ameer Hamza. It intentionally contains only a single public page (index.html) and this README.
 
-The repository was reduced to a single index.html for the site and this README.md.
+Purpose: simple test or development page — lightweight, no tracking, no extra files.
